@@ -1,0 +1,8 @@
+{
+  "name": "Datavora Teacher - Supabase",
+  "description": "Aplikasi digital modern untuk guru wali kelas mengelola siswa, absensi, nilai, jadwal, piket, catatan perkembangan, dan administrasi kelas secara praktis dan terpadu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
