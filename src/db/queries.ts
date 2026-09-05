@@ -1,4 +1,4 @@
-import { db } from './index.ts';
+import { db } from './index';
 import { 
   classInfo, 
   students, 
@@ -9,7 +9,7 @@ import {
   cashTransactions, 
   payments, 
   studentNotes 
-} from './schema.ts';
+} from './schema';
 import { eq } from 'drizzle-orm';
 
 // Class Info

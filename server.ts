@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
-import { optionalAuth, AuthRequest } from "./src/middleware/auth.ts";
-import { getOrCreateUser } from "./src/db/users.ts";
+import { optionalAuth, AuthRequest } from "./src/middleware/auth";
+import { getOrCreateUser } from "./src/db/users";
 import {
   fetchClassInfo,
   upsertClassInfo,
@@ -32,7 +32,7 @@ import {
   removeStudentNote,
   seedInitialData,
   resetAllData,
-} from "./src/db/queries.ts";
+} from "./src/db/queries";
 
 const app = express();
 const PORT = 3000;
