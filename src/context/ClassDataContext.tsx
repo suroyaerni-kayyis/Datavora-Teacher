@@ -183,42 +183,42 @@ export const ClassDataProvider: React.FC<{ children: ReactNode }> = ({ children 
 
   const [students, setStudents] = useState<Student[]>(() => {
     const saved = localStorage.getItem(`${STORAGE_KEY}_students`);
-    return saved ? JSON.parse(saved) : sampleStudents;
+    return saved ? JSON.parse(saved) : [];
   });
 
   const [attendance, setAttendance] = useState<AttendanceRecord[]>(() => {
     const saved = localStorage.getItem(`${STORAGE_KEY}_attendance`);
-    return saved ? JSON.parse(saved) : sampleAttendance;
+    return saved ? JSON.parse(saved) : [];
   });
 
   const [grades, setGrades] = useState<GradeRecord[]>(() => {
     const saved = localStorage.getItem(`${STORAGE_KEY}_grades`);
-    return saved ? JSON.parse(saved) : sampleGrades;
+    return saved ? JSON.parse(saved) : [];
   });
 
   const [schedule, setSchedule] = useState<ScheduleItem[]>(() => {
     const saved = localStorage.getItem(`${STORAGE_KEY}_schedule`);
-    return saved ? JSON.parse(saved) : sampleSchedule;
+    return saved ? JSON.parse(saved) : [];
   });
 
   const [dutySchedule, setDutySchedule] = useState<DutySchedule[]>(() => {
     const saved = localStorage.getItem(`${STORAGE_KEY}_duty`);
-    return saved ? JSON.parse(saved) : sampleDutySchedule;
+    return saved ? JSON.parse(saved) : [];
   });
 
   const [cashTransactions, setCashTransactions] = useState<CashTransaction[]>(() => {
     const saved = localStorage.getItem(`${STORAGE_KEY}_cash`);
-    return saved ? JSON.parse(saved) : sampleCashTransactions;
+    return saved ? JSON.parse(saved) : [];
   });
 
   const [payments, setPayments] = useState<PaymentItem[]>(() => {
     const saved = localStorage.getItem(`${STORAGE_KEY}_payments`);
-    return saved ? JSON.parse(saved) : samplePayments;
+    return saved ? JSON.parse(saved) : [];
   });
 
   const [notes, setNotes] = useState<StudentNote[]>(() => {
     const saved = localStorage.getItem(`${STORAGE_KEY}_notes`);
-    return saved ? JSON.parse(saved) : sampleStudentNotes;
+    return saved ? JSON.parse(saved) : [];
   });
 
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
@@ -304,18 +304,15 @@ export const ClassDataProvider: React.FC<{ children: ReactNode }> = ({ children 
           if (Array.isArray(remoteData.payments)) setPayments(remoteData.payments);
           if (Array.isArray(remoteData.notes)) setNotes(remoteData.notes);
         } else {
-          // If remote is empty, seed it with current/sample data
-          await seedRemoteData({
-            classInfo,
-            students: sampleStudents,
-            attendance: sampleAttendance,
-            grades: sampleGrades,
-            schedule: sampleSchedule,
-            dutySchedule: sampleDutySchedule,
-            cashTransactions: sampleCashTransactions,
-            payments: samplePayments,
-            notes: sampleStudentNotes,
-          });
+          // If remote is empty, ensure local state is also empty (fresh install)
+          setStudents([]);
+          setAttendance([]);
+          setGrades([]);
+          setSchedule([]);
+          setDutySchedule([]);
+          setCashTransactions([]);
+          setPayments([]);
+          setNotes([]);
         }
         setDbStatus('connected');
         setLastSyncTime(new Date().toLocaleTimeString('id-ID'));

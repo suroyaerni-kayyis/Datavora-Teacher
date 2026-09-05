@@ -62,7 +62,12 @@ git push -u origin main
 5. Masuk ke menu **Settings > API**, catat:
    - Project URL (`VITE_SUPABASE_URL`)
    - Project API keys (anon / public) (`VITE_SUPABASE_ANON_KEY`)
-*(Struktur tabel akan otomatis terbuat ketika Drizzle ORM atau Backend berjalan).*
+6. **(Penting) Membuat Tabel Database**:
+   - Masuk ke menu **SQL Editor** di *dashboard* Supabase Anda.
+   - Buka file `database.sql` yang ada di dalam proyek ini, salin semua isinya (Copy).
+   - Tempel (Paste) di SQL Editor Supabase, lalu klik tombol **Run**. 
+   - Semua tabel yang dibutuhkan akan langsung otomatis terbuat!
+
 
 ### Tahap 3: Deployment ke Vercel
 1. Buka [Vercel](https://vercel.com) dan login menggunakan akun GitHub Anda.
