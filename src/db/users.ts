@@ -1,5 +1,5 @@
-import { db } from './index';
-import { users } from './schema';
+import { db } from './index.js';
+import { users } from './schema.js';
 
 export async function getOrCreateUser(uid: string, email: string, name?: string) {
   try {

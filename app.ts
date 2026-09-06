@@ -1,6 +1,6 @@
 import express from "express";
-import { optionalAuth, AuthRequest } from "./src/middleware/auth";
-import { getOrCreateUser } from "./src/db/users";
+import { optionalAuth, AuthRequest } from "./src/middleware/auth.js";
+import { getOrCreateUser } from "./src/db/users.js";
 import {
   fetchClassInfo,
   upsertClassInfo,
@@ -31,7 +31,7 @@ import {
   removeStudentNote,
   seedInitialData,
   resetAllData,
-} from "./src/db/queries";
+} from "./src/db/queries.js";
 
 const app = express();
 
