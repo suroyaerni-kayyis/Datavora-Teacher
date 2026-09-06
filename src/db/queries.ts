@@ -22,7 +22,7 @@ export async function fetchClassInfo() {
     return null;
   } catch (error: any) {
     console.error('Error fetching class info:', error);
-    throw new Error('DB Error: ' + (error.message || String(error)));
+    throw new Error('DB Error: ' + error.message + ' | Code: ' + error.code + ' | Routine: ' + error.routine);
   }
 }
 
