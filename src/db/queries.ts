@@ -20,9 +20,9 @@ export async function fetchClassInfo() {
       return rows[0];
     }
     return null;
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching class info:', error);
-    throw new Error('Gagal memuat profil kelas', { cause: error });
+    throw new Error('DB Error: ' + (error.message || String(error)));
   }
 }
 
